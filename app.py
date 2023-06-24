@@ -1,5 +1,5 @@
 from flask import Flask
-from config import PORT
+from config import config
 from util import query
 
 app = Flask(__name__)
@@ -20,4 +20,4 @@ def test():
 
 
 if __name__ == '__main__':
-    app.run(port=PORT, debug=True)
+    app.run(port=config.PORT, debug=config.DEBUG)
