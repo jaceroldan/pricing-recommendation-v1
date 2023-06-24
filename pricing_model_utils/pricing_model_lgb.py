@@ -10,12 +10,14 @@ import category_encoders as ce
 data = pd.read_csv('dashboard_car_inventory.csv')
 
 # Prepare the features and target variable
-columns = ['color', 'number_of_seats', 'number_of_doors', 'type_of_gas', 'kilometers_per_liter', 'mileage']
+columns = ['color', 'number_of_seats', 'number_of_doors',
+           'type_of_gas', 'kilometers_per_liter', 'mileage']
 X = data[columns].fillna(0)
 y = data['rate'].fillna(0)
 
 # Split the dataset into train and test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42)
 
 # Category encoding
 encoder = ce.OrdinalEncoder(cols=columns)
