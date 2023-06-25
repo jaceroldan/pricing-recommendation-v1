@@ -1,7 +1,7 @@
 # pricing-recommendation-v1
 
 
-### A Flask API server the computes the pricing recommendation of a specific Car based on Machine learning
+### A Flask API server the computes the pricing recommendation of a specific Car that uses Machine learning
 
 
 __Note:__
