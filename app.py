@@ -1,6 +1,7 @@
 from flask import Flask
 from config import config
 import os
+import sys
 
 app = Flask(__name__)
 
@@ -9,7 +10,9 @@ BASE_PATH = '/api'
 
 def start_app():
     # was having import problems, working with python imports is a bit different in js/nodejs
-    [os.path.join(os.getcwd(), path) for path in ['routes', 'utils']]
+    # adding directories to import from
+    [sys.path.append(os.path.join(os.getcwd(), path))
+     for path in ['routes', 'utils']]
 
     from routes import root, pricing_recommendation as pr
 
