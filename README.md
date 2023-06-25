@@ -12,6 +12,8 @@ __Note:__
 
 `Anaconda` for testing jupyter notebooks
 
+also lastly create a [virtual environment](https://docs.python.org/3/library/venv.html) and activate it when working with project and deactivate after you've done your work
+
 [Python](https://www.python.org/downloads/)
 
 [Anaconda download](https://www.anaconda.com/download
