@@ -1,23 +1,23 @@
 from flask import Flask
 from config import config
-from util import query
+import os
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def root():
-    return {'statusCode': 200, 'message': 'Hello World!'}
+BASE_PATH = '/api'
 
 
-@app.route('/test')
-def test():
+def start_app():
+    # was having import problems, working with python imports is a bit different in js/nodejs
+    [os.path.join(os.getcwd(), path) for path in ['routes', 'utils']]
 
-    try:
-        return query('SELECT * FROM dashboard.car_inventory ORDER BY id ASC LIMIT 10')
-    except Exception as e:
-        print(e)
+    from routes import root, pricing_recommendation as pr
+
+    app.register_blueprint(root.root, url_prefix=BASE_PATH)
+    app.register_blueprint(pr.pricing_recommendation, url_prefix=BASE_PATH)
+
+    app.run(port=config.PORT, debug=config.DEBUG)
 
 
 if __name__ == '__main__':
-    app.run(port=config.PORT, debug=config.DEBUG)
+    start_app()

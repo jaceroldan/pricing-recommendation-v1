@@ -18,5 +18,14 @@ class Config:
         self.DB_PORT: str = os.getenv('DB_PORT')
         self.DEBUG: bool = False if self.ENV == 'production' else True
 
+    def db_config(self):
+        return {
+            'host': self.DB_HOST,
+            'database': self.DB_NAME,
+            'user': self.DB_USER,
+            'password': self.DB_PASS,
+            'port': self.DB_PORT
+        }
+
 
 config = Config()
